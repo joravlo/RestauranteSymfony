@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block title %}Inicio{% endblock %}
+{% block nav %}
+<script src="js/jquery.vide.min.js"></script>
+<div data-vide-bg="video/cook">
+  <!-- banner -->
+  <div class="banner">
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <h1><a href="index.html">La Tapa</a></h1>
+        </div>
+        <div class="top-nav">
+          <nav class="navbar navbar-default">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu
+              </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a class="active" href="{{path('restaurante_homepage')}}">Inicio</a></li>
+                <li><a href="{{path('restaurante_carta')}}">Carta</a></li>
+                <li><a href="{{path('restaurante_add')}}">Añadir Tapa</a></li>
+                <div class="clearfix"> </div>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="banner-info">
+        <h2>El sabor de España</h2>
+        <p>Las mejores tapas traídas desde España a nuestro restaurante situado en el centro de Londres</p>
+      </div>
+      <div class="banner-grads">
+        <div class="col-md-4 banner-grad">
+          <div class="banner-grad-img">
+            <img src="images/b1.jpg" alt="" />
+            <h4>Tradicional</h4>
+          </div>
+        </div>
+        <div class="col-md-4 banner-grad">
+          <div class="banner-grad-img">
+            <img src="images/b2.jpg" alt="" />
+            <h4>Sabroso</h4>
+          </div>
+        </div>
+        <div class="col-md-4 banner-grad">
+          <div class="banner-grad-img">
+            <img src="images/b3.jpg" alt="" />
+            <h4>Sorprendente</h4>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+  <!-- //banner -->
+</div>
+
+<div class="special">
+  <div class="container">
+    <div class="special-heading">
+      <h3>Especialidades</h3>
+    </div>
+    <div class="special-grids">
+      <!-- For que mostrar las 6 primeras tapas de la base de datos -->
+      {% set break = false %}
+      {% for tapa in tapas if not break %}
+      <div class="col-md-4 w3l-special-grid">
+        <div class="col-md-6 w3ls-special-img"  style="background-image: url({{tapa.foto}});">
+          <div class="w3ls-special-text effect-1">
+            <h4>{{tapa.nombre}}</h4>
+          </div>
+        </div>
+        <div class="col-md-6 agileits-special-info">
+          <h4>{{tapa.nombre}}</h4>
+          <p>{{tapa.descripcion}}</p>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      {% if loop.index == 6 %}
+        {% set break = true %}
+    {% endif %}
+      {% endfor %}
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

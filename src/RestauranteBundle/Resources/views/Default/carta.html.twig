@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Menu{% endblock %}
+{% block body %}
+<div class="menu">
+  <div class="container">
+    <div class="menu-heading">
+      <h2>Nuestros platos</h2>
+    </div>
+    <div class="menu-top-grids">
+      <div class="w3ls-menu-grids">
+        {% for tapa in tapas %}
+        <div class="col-md-4 menu-grid">
+          <div class="agile-menu-grid">
+            <a href="{{path('restaurante_single', {'idTapa': tapa.id})}}">
+              <img src="{{tapa.foto}}" alt="" />
+              <div class="agileits-caption">
+                <h4>{{tapa.nombre}}</h4>
+                <p>{{tapa.precio}}€</p>
+                <a href="{{path('restaurante_update', {'idTapa': tapa.id})}}"><button class="submit" type="button" name="button">Editar</button></a> 
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //menu -->
+{% endblock %}

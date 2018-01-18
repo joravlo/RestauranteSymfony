@@ -1,0 +1,18 @@
+restaurante_homepage:
+    path:     /
+    defaults: { _controller: RestauranteBundle:Default:index }
+restaurante_carta:
+    path:     /carta
+    defaults: { _controller: RestauranteBundle:Default:carta }
+restaurante_single:
+    path:     /carta/{idTapa}
+    defaults: { _controller: RestauranteBundle:Default:single }
+restaurante_add:
+    path:     /addTapa
+    defaults: { _controller: RestauranteBundle:Default:addTapa }
+restaurante_update:
+    path:     /updateTapa/{idTapa}
+    defaults: { _controller: RestauranteBundle:Default:actualizarTapa }
+restaurante_delete:
+    path:     /deleteTapa/{idTapa}
+    defaults: { _controller: RestauranteBundle:Default:eliminarTapa }

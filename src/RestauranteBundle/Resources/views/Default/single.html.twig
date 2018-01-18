@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{tapa.nombre}}{% endblock %}
+{% block body %}
+<div class="blog">
+      <!-- container -->
+      <div class="container">
+        <div class="">
+          <div class="left-blog left-single">
+            <div class="blog-left">
+              <div class="single-left-left">
+                <h1>{{tapa.nombre}}</h1>
+                <p>Tapa creada {{tapa.fechaCreacion|date('Y')}} con un precio de {{tapa.precio}}€</p>
+                <img src="{{tapa.foto}}" alt="">
+              </div>
+              <div class="blog-left-bottom">
+                <p>{{tapa.descripcion}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+      <!-- //container -->
+</div>
+{% endblock %}

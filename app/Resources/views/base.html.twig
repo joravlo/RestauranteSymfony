@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href= {{ asset('css/bootstrap.css') }} rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href= {{ asset('css/style.css') }} type="text/css" media="all" />
+<link href= {{ asset('css/font-awesome.css') }} rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+      {% endblock %}
+      {% block javascripts %}
+<script src= {{ asset('js/jquery-1.11.1.min.js') }}></script>
+<script src= {{ asset('js/bootstrap.js') }}></script>
+<script src= {{ asset('js/SmoothScroll.min.js') }}></script>
+    {% endblock %}
+    </head>
+    <body>
+      {% block nav %}
+      <div class="bg-img">
+    		<!-- banner -->
+    		<div class="banner code-banner">
+    			<div class="container">
+    				<div class="header">
+    					<div class="logo">
+    						<h1><a href="index.html">Tapas</a></h1>
+    					</div>
+    					<div class="top-nav">
+    						<nav class="navbar navbar-default">
+    								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu
+    								</button>
+    							<!-- Collect the nav links, forms, and other content for toggling -->
+    							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    								<ul class="nav navbar-nav">
+                      {% set routeSelected = app.request.attributes.get('_route') %}
+    									<li><a href="{{path('restaurante_homepage')}}">Inicio</a></li>
+    									<li><a class="{% if routeSelected == 'restaurante_carta' or routeSelected == 'restaurante_single'%}active{% endif %}" href="{{path('restaurante_carta')}}">Carta</a></li>
+    									<li><a class="{% if routeSelected == 'restaurante_add'%}active{% endif %}" href="{{path('restaurante_add')}}">Añadir Tapa</a></li>
+    									<div class="clearfix"> </div>
+    								</ul>
+    							</div>
+    						</nav>
+    					</div>
+    					<div class="clearfix"> </div>
+    				</div>
+    			</div>
+    		</div>
+    		<!-- //banner -->
+    	</div>
+      {% endblock %}
+        {% block body %}{% endblock %}
+
+        {% block footer %}
+        <div class="copyright">
+          <div class="container">
+            <div class="w3agile-list">
+              <ul>
+                <li><a href="{{path('restaurante_homepage')}}">Inicio</a></li>
+                <li><a href="{{path('restaurante_carta')}}">Carta</a></li>
+                <li><a href="codes.html">Codes</a></li>
+                <li><a href="news.html">News & Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endblock %}
+    </body>
+</html>
