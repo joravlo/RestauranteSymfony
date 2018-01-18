@@ -1,4 +1,4 @@
-restaurante
+Restaurante
 ===========
 
-A Symfony project created on January 3, 2018, 8:32 pm.
+Proyecto de Symfony el cual podremos gestionar un restaurante
