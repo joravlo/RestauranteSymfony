@@ -16,3 +16,6 @@ restaurante_update:
 restaurante_delete:
     path:     /deleteTapa/{idTapa}
     defaults: { _controller: RestauranteBundle:Default:eliminarTapa }
+restaurante_register:
+    path:     /register
+    defaults: { _controller: RestauranteBundle:Default:register }
